@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="js/swiper.js"></script>
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+				box-sizing: border-box;
+				font-family: "微软雅黑";
+			}
+			
+			.header {
+				height: 72px;
+				width: 100%;
+				background-color: #ffd84d;
+				box-shadow: 0px 4px 8px 0px rgba(7, 17, 27, 0.3);
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				position: fixed;
+				top: 0px;
+				z-index: 99;
+			}
+			
+			a {
+				text-decoration: none;
+				color: rgba(0, 0, 0, 0.8);
+			}
+			
+			.headertext {
+				width: 260px;
+				height: 46px;
+				/*border: none;*/
+				border-bottom: rgba(0, 0, 0, 0.3) 0.5px solid;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+				background-color: #ffd84d;
+				outline: none;
+				padding-left: 10px;
+			}
+			
+			.loginandzhuche {
+				display: flex;
+				float: right;
+			}
+			
+			.login {
+				margin-right: 30px;
+				color: rgba(0, 0, 0, 0.8);
+				line-height: 72px;
+			}
+			
+			.zhuche {
+				margin-right: 30px;
+				color: rgba(0, 0, 0, 0.8);
+				line-height: 72px;
+			}
+			
+			.xiegang {
+				margin-right: 30px;
+				color: rgba(0, 0, 0, 0.6);
+				line-height: 72px;
+			}
+			
+			.icon-gouwuche,
+			.icon-shoucang {
+				font-size: 16px;
+				line-height: 72px;
+				color: black;
+			}
+			
+			.icon-shoucang {
+				font-size: 12px;
+			}
+			
+			.icongwc,
+			.iconscj {
+				font-size: 14px;
+				line-height: 20px;
+				display: flex;
+				width: 115px;
+				justify-content: space-around;
+				line-height: 72px;
+				margin-right: 30px;
+			}
+			
+			.gwc,
+			.scj {
+				height: 72px;
+				float: right;
+			}
+			
+			.icon-xiangxia {
+				font-size: 12px;
+				margin-left: 10px;
+				line-height: 72px;
+			}
+			
+			.icon-sousuo {
+				font-size: 20px;
+				color: rgba(0, 0, 0, 0.6);
+				position: absolute;
+				height: 46px;
+				line-height: 46px;
+				right: 10px;
+			}
+			
+			.ss {
+				display: flex;
+				position: relative;
+				margin-right: 30px;
+			}
+			
+			.logoimg {
+				width: 72px;
+				height: 72px;
+				background: url(img/logo.jpg);
+				background-size: 100% 100%;
+				position: absolute;
+				left: 0px;
+				margin-left: 10px;
+			}
+			
+			.logotext {
+				position: absolute;
+				left: 72px;
+				font-size: 24px;
+				font-weight: 600;
+				margin-left: 30px;
+			}
+			
+			.logotext>a {
+				color: rgba(0, 0, 0, 0.85);
+			}
+			
+			.swiper-container {
+				width: 936px;
+				height: 316px;
+				margin-top: 130px;
+				border-radius: 10px;
+			}
+			
+			.swiper-slide>img {
+				width: 936px;
+				height: 316px;
+			}
+			
+			.swiper-button-prev,
+			.swiper-button-next {
+				background-image: url();
+			}
+			
+			.icon-fangxiang-xiangzuo,
+			.icon-fangxiang-xiangyou {
+				font-size: 42px;
+				font-weight: bold;
+				color: #FFD84D;
+			}
+			
+			.swiper-button-next {
+				margin-right: 5px;
+			}
+			
+			.mai {
+				font-size: 10px;
+				margin-right: 30px;
+			}
+			
+			.mai>a {
+				color: red;
+				opacity: 0.7;
+			}
+			
+			.loginjiemian,
+			.zhuchejiemian {
+				width: 340px;
+				height: 382px;
+				background-color: white;
+				border-radius: 10px;
+				position: absolute;
+				margin-left: 50%;
+				left: -170px;
+				top: 186px;
+			}
+			
+			.beijindanhua {
+				width: 100%;
+				height: 754px;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: absolute;
+				top: 0px;
+				z-index: 100;
+				display: none;
+			}
+			
+			.icon-guanbi {
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.icon-guanbi:hover {
+				color: #FFD84D;
+			}
+			
+			.denglu {
+				position: absolute;
+				left: 20px;
+				top: 20px;
+				font-size: 20px;
+				font-weight: bold;
+				color: #FFD84D;
+			}
+			
+			.dengluinput {
+				width: 300px;
+				height: 48px;
+				border-radius: 10px;
+				border: none;
+				background-color: rgba(0, 0, 0, 0.2);
+				position: absolute;
+				left: 20px;
+				top: 80px;
+				outline: none;
+				padding-left: 20px;
+			}
+			
+			.denglumimainput,
+			.denglumimainputagain {
+				width: 300px;
+				height: 48px;
+				border-radius: 10px;
+				border: none;
+				background-color: rgba(0, 0, 0, 0.2);
+				position: absolute;
+				left: 20px;
+				top: 143px;
+				outline: none;
+				padding-left: 20px;
+			}
+			
+			.denglumimainputagain {
+				top: 206px;
+			}
+			
+			.dengluanniu {
+				width: 300px;
+				height: 48px;
+				top: 241px;
+				left: 20px;
+				position: absolute;
+				border-radius: 10px;
+				background-color: #FFD84D;
+				color: white;
+				border: none;
+				box-shadow: 0px 4px 8px 0px rgba(7, 17, 27, 0.3);
+				outline: none;
+				font-size: 24px;
+				font-weight: 500;
+				text-align: center;
+			}
+			
+			.dengluanniu:hover {
+				background-color: white;
+				color: #FFD84D;
+			}
+			
+			.wj {
+				font-size: 12px;
+				position: absolute;
+				right: 20px;
+				top: 213px;
+				display: flex;
+			}
+			
+			.fengge {
+				rgba(0,
+				0,
+				0,
+				0.8);
+				margin-right: 5px;
+				margin-top: -1px;
+			}
+			
+			.qita {
+				display: flex;
+				position: absolute;
+				bottom: 40px;
+				left: 20px;
+			}
+			
+			.icon-web-icon-,
+			.icon-weixin {
+				font-size: 24px;
+				color: rgba(0, 0, 0, 0.7);
+			}
+			
+			.qitatext {
+				margin-right: 165px;
+				color: rgba(0, 0, 0, 0.7);
+				font-size: 12px;
+				line-height: 28.4px;
+			}
+			
+			.icon-weixin {
+				margin-top: 2px;
+				margin-left: 10px;
+			}
+			
+			.icon-web-icon-:hover {
+				color: dodgerblue;
+			}
+			
+			.icon-weixin:hover {
+				color: limegreen;
+			}
+			
+			.zc {
+				color: red;
+			}
+			
+			.zhuchejiemian {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.zhucheanniu {
+				top: 269px;
+			}
+			
+			.zhuchejiemian>.qita {
+				bottom: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="logoimg"></div>
+			<div class="logotext">
+				<a href="">广东海洋大学寸金学院二手交易市场</a>
+			</div>
+			<div class="ss">
+				<input type="text" placeholder="你想要点什么" class="headertext" />
+				<div class="iconfont icon-sousuo"></div>
+			</div>
+			<div class="mai">
+				<a href="">想卖东西？</a>
+			</div>
+			<div class="scj">
+				<a href="" class="iconscj">
+					<div class="iconfont icon-shoucang"></div>
+					我的收藏夹
+					<div class="iconfont icon-xiangxia"></div>
+				</a>
+			</div>
+			<div class="gwc">
+				<a href="" class="icongwc">
+					<div class="iconfont icon-gouwuche"></div>
+					我的购物车
+					<div class="iconfont icon-xiangxia"></div>
+				</a>
+			</div>
+
+			<div class="loginandzhuche">
+				<div class="login">
+					<a href="#">登录</a>
+				</div>
+				<div class="xiegang">/</div>
+				<div class="zhuche">
+					<a href="#">注册</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="img/1.jpg"></div>
+				<div class="swiper-slide"><img src="img/2.jpg"></div>
+				<div class="swiper-slide"><img src="img/3.jpg"></div>
+			</div>
+			<!-- 如果需要导航按钮 -->
+			<div class="swiper-button-prev">
+				<div class="iconfont icon-fangxiang-xiangzuo"></div>
+			</div>
+			<div class="swiper-button-next">
+				<div class="iconfont icon-fangxiang-xiangyou"></div>
+			</div>
+		</div>
+
+		<div class="beijindanhua">
+			<div class="loginjiemian">
+				<div class="denglu">登录</div>
+				<center>
+					<hr width="320px" size="2" style="margin-top: 60px;" />
+				</center>
+				<div class="iconfont icon-guanbi"></div>
+				<input type="text" class="dengluinput" placeholder="请输入账号" />
+				<input type="text" class="denglumimainput" placeholder="请输入密码" />
+				<div class="wj">
+					<a href="#">忘记密码？</a>
+					<div class="fengge">|</div>
+					<a href="#" class="kuaijiezhuche">还没有账号？马上</a>
+					<a href="#" class="kuaijiezhuche zc">注册</a>
+				</div>
+				<input type="submit" value="登录" class="dengluanniu" />
+				<div class="qita">
+					<div class="qitatext">其他登录方式</div>
+					<div class="iconfont icon-web-icon-"></div>
+					<div class="iconfont icon-weixin"></div>
+				</div>
+			</div>
+			<div class="zhuchejiemian">
+				<div class="denglu">注册</div>
+				<div class="iconfont icon-guanbi"></div>
+				<center>
+					<hr width="320px" size="2" style="margin-top: 60px;" />
+				</center>
+				<input type="text" class="dengluinput" placeholder="请输入你的账号" />
+				<input type="text" class="denglumimainput" placeholder="请输入你的密码" />
+				<input type="text" class="denglumimainputagain" placeholder="请再次输入你的密码" />
+				<input type="submit" value="注册" class="dengluanniu zhucheanniu" />
+				<div class="qita">
+					<div class="qitatext">其他登录方式</div>
+					<div class="iconfont icon-web-icon-"></div>
+					<div class="iconfont icon-weixin"></div>
+				</div>
+			</div>
+
+		</div>
+
+		<script>
+			$('.headertext').click(function(e) {
+				console.log(e)
+				$('.headertext').attr('placeholder', '');
+			})
+
+			var mySwiper = new Swiper('.swiper-container', {
+				loop: true,
+				autoplay: true,
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+
+				// 如果需要滚动条
+				scrollbar: '.swiper-scrollbar',
+
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			})
+
+			$('.login').click(function(e) {
+				console.log(e)
+				$('.beijindanhua').css({
+					display: 'block'
+				})
+
+				$('.zhuchejiemian').css({
+					display: 'none'
+				})
+
+				$('.loginjiemian').css({
+					display: 'block'
+				})
+
+				$('.icon-guanbi').click(function() {
+					$('.beijindanhua').css({
+						display: 'none'
+					})
+				})
+			})
+
+			$('.zhuche').click(function(e) {
+				console.log(e)
+				$('.beijindanhua').css({
+					display: 'block'
+				})
+
+				$('.loginjiemian').css({
+					display: 'none'
+				})
+
+				$(".zhuchejiemian").css({
+					display: 'block'
+				})
+
+				$('.icon-guanbi').click(function() {
+					$('.beijindanhua').css({
+						display: 'none'
+					})
+				})
+			})
+
+			$('.kuaijiezhuche').click(function() {
+				$('.loginjiemian').css({
+					display: 'none'
+				})
+
+				$(".zhuchejiemian").css({
+					display: 'block'
+				})
+			})
+		</script>
+
+	</body>
+
+</html>
